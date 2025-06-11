@@ -49,7 +49,7 @@ async function listAllMovies(page = 1): Promise<PaginatedResponse<Movie>> {
 async function getMovieDetails(imdbId: string): Promise<MovieDetails> {
   const sql = 'SELECT * FROM movies WHERE imdbId = ?';
   const movie = await getMovie(sql, [imdbId]);
-  if (!movie) throw new CustomApiError(404, 'Movie not found');
+  if (!movie) throw new CustomApiError(404, 'no movie found');
 
   const ratingRow = await getRating(
     'SELECT AVG(rating) as avgRating FROM ratings WHERE movieId = ?',
