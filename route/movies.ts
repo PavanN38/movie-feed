@@ -9,9 +9,8 @@ import {
 const router = express.Router();
 const moviesController = require('../controller/movieController');
 
-
+//all the 4 routers are listed below with the paths
 router.get('/', validatePage, moviesController.listAllMovies);
-
 
 router.get(
   '/year/:year',

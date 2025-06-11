@@ -23,7 +23,11 @@ interface PaginatedResponse<T> {
   data: T[];
 }
 
-
+/**
+ * 
+ * @param page 
+ * @returns {Promise<MovieDetails[]>} list of movie details.
+ */
 async function listMovies(page = 1): Promise<PaginatedResponse<Movie>> {
   if (page < 1) page = 1;
   const limit = 50;
@@ -45,7 +49,11 @@ async function listMovies(page = 1): Promise<PaginatedResponse<Movie>> {
   return { page, data };
 }
 
-
+/**
+ * 
+ * @param imdbId - given imdb id
+ * @returns movie information
+ */
 async function getMovieDetails(imdbId: string): Promise<MovieDetails> {
   const sql = 'SELECT * FROM movies WHERE imdbId = ?';
   const movie = await getMovie(sql, [imdbId]);
@@ -70,7 +78,13 @@ async function getMovieDetails(imdbId: string): Promise<MovieDetails> {
   };
 }
 
-
+/**
+ * 
+ * @param year - year of release
+ * @param page - page number
+ * @param order - asc or dsc
+ * @returns - movies released in that year
+ */
 async function listMoviesByYear(year: string, page = 1, order = 'ASC'): Promise<PaginatedResponse<Movie>> {
   if (page < 1) page = 1;
   const limit = 50;
@@ -93,7 +107,12 @@ async function listMoviesByYear(year: string, page = 1, order = 'ASC'): Promise<
   return { page, data };
 }
 
-
+/**
+ * 
+ * @param genre - provide the genre you want
+ * @param page - page information
+ * @returns -list of movie present in that genre
+ */
 async function listMoviesByGenre(genre: string, page = 1): Promise<PaginatedResponse<Movie>> {
   if (page < 1) page = 1;
   const limit = 50;

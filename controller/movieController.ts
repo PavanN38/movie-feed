@@ -2,7 +2,9 @@ export { };
 const movieService = require('../service/movieService');
 const { success, badRequest } = require('../util/responseHandler');
 
-
+/**
+ * Fetches the list of all the movies available in the databases
+ */
 exports.listAllMovies = async (req, res, next) => {
     try {
         const page = parseInt(req.query.page, 10) || 1;
@@ -13,7 +15,9 @@ exports.listAllMovies = async (req, res, next) => {
     }
 };
 
-
+/**
+ * Fetches the movie details based on the IMDb id provided
+ */
 exports.movieDetails = async (req, res, next) => {
     try {
         const imdbId = req.params.id;
@@ -25,7 +29,9 @@ exports.movieDetails = async (req, res, next) => {
     }
 };
 
-
+/**
+ * Fetches the movie details based on the year
+ */
 exports.moviesByYear = async (req, res, next) => {
     try {
         const year = req.params.year;
@@ -38,7 +44,9 @@ exports.moviesByYear = async (req, res, next) => {
     }
 };
 
-
+/**
+ * Fetches movies based on the genre provided
+ */
 exports.moviesByGenre = async (req, res, next) => {
     try {
         const genre = req.params.genre;
