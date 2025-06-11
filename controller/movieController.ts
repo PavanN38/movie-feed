@@ -1,5 +1,5 @@
 export { };
-const movieService = require('../services/movieService');
+const movieService = require('../service/movieService');
 const { success, badRequest } = require('../util/responseHandler');
 
 

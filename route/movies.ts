@@ -7,7 +7,7 @@ import {
   validateOrder,
 } from '../util/validation';
 const router = express.Router();
-const moviesController = require('../controllers/movieController');
+const moviesController = require('../controller/movieController');
 
 
 router.get('/', validatePage, moviesController.listAllMovies);

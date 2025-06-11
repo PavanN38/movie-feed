@@ -10,6 +10,6 @@
     "strict": false,
     "noImplicitAny": false
   },
-  "include": ["**/*.ts"],
+  "include": ["**/*.ts", "app.js"],
   "exclude": ["node_modules", "dist", "__tests__"]
 }
