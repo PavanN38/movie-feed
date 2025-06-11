@@ -24,7 +24,7 @@ interface PaginatedResponse<T> {
 }
 
 
-async function listAllMovies(page = 1): Promise<PaginatedResponse<Movie>> {
+async function listMovies(page = 1): Promise<PaginatedResponse<Movie>> {
   if (page < 1) page = 1;
   const limit = 50;
   const offset = (page - 1) * limit;
@@ -120,7 +120,7 @@ async function listMoviesByGenre(genre: string, page = 1): Promise<PaginatedResp
 }
 
 module.exports = {
-  listAllMovies,
+  listMovies,
   getMovieDetails,
   listMoviesByYear,
   listMoviesByGenre,

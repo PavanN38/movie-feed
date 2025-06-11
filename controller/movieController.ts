@@ -6,7 +6,7 @@ const { success, badRequest } = require('../util/responseHandler');
 exports.listAllMovies = async (req, res, next) => {
     try {
         const page = parseInt(req.query.page, 10) || 1;
-        const { page: currentPage, data } = await movieService.listAllMovies(page);
+        const { page: currentPage, data } = await movieService.listMovies(page);
         return success(res, data, { page: currentPage });
     } catch (err) {
         next(err);
